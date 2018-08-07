@@ -2,4 +2,4 @@
 ################
 org.eclipse.wst.common.project.facet.core.xml
 .classpath
-./build/
+build
