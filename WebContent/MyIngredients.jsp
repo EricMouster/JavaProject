@@ -7,6 +7,8 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/custom.css">
+<!-- Font Awesome -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
 <title>My Ingredients Manager</title>
 </head>
 <body>
@@ -18,6 +20,7 @@
 					<th scope="col">#</th>
 					<th scope="col">Name</th>
 					<th scope="col">Price</th>
+					<th scope="col"><i class="fas fa-plus-square" id="add"></i></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -26,10 +29,16 @@
 						<th scope="row">${i.id}</th>
 						<td>${i.name}</td>
 						<td>${i.price}</td>
+						<td></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	<script type="text/javascript">
+	document.getElementById("add").addEventListener("click", () => {
+		window.location = "http://localhost:8080/Recipe/AddIngredient";
+	}); 
+	</script>
 </body>
 </html>

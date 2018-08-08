@@ -19,6 +19,7 @@ public class Ingredient {
 	private Long id;
 	private String name;
 	private Float price;
+	private String unit;
 	
 	@ManyToOne
 	private User user;
@@ -31,11 +32,12 @@ public class Ingredient {
 		super();
 	}
 
-	public Ingredient(String name, Float price, User user) {
+	public Ingredient(String name, Float price, User user, String unit) {
 		super();
 		this.name = name;
 		this.price = price;
 		this.user = user;
+		this.unit = unit;
 	}
 
 	/*
@@ -72,6 +74,14 @@ public class Ingredient {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+	public String getUnit() {
+		return unit;
+	}
+
+	public void setUnit(String unit) {
+		this.unit = unit;
 	}
 	
 }

@@ -1,29 +1,23 @@
 package fr.imie.recipe.servlet;
 
 import java.io.IOException;
-import java.util.List;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import fr.imie.recipe.dao.DaoFactory;
-import fr.imie.recipe.entity.Recipe;
-import fr.imie.recipe.entity.User;
-
 /**
- * Servlet implementation class MyRecipeServlet
+ * Servlet implementation class AddIngredient
  */
-@WebServlet("/MyRecipes")
-public class MyRecipesServlet extends HttpServlet {
+@WebServlet("/AddIngredient")
+public class AddIngredientServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public MyRecipesServlet() {
+    public AddIngredientServlet() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,10 +26,7 @@ public class MyRecipesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User currentUser = DaoFactory.getUserDao().findUserById(1L);
-		List<Recipe> recipes = DaoFactory.getRecipeDao().findRecipeByUser(currentUser);
-		request.setAttribute("recipes", recipes);
-		request.getRequestDispatcher("/MyRecipes.jsp").forward(request, response);
+		request.getRequestDispatcher("/AddIngredient.jsp").forward(request, response);
 	}
 
 	/**
