@@ -5,47 +5,28 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 
 @Entity
-public class Star {
-	
-	/*
-	 * Attributes 
-	 */
+public class Instruction {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@OneToOne
+	
+	@ManyToOne
 	@JoinColumn(name="recipe_id")
 	private Recipe recipe;
-	
-	private Long number;
-	
-	@OneToOne
-	@JoinColumn(name="user_id")
-	private User user;
 
-	/*
-	 * Constructor
-	 */
-	
-	public Star() {
+	public Instruction() {
 		super();
 	}
 
-	public Star(Recipe recipe, Long number, User user) {
+	public Instruction(Recipe recipe) {
 		super();
 		this.recipe = recipe;
-		this.number = number;
-		this.user = user;
 	}
-	
-	/*
-	 * Getter and Setters
-	 */
-	
+
 	public Long getId() {
 		return id;
 	}
@@ -61,21 +42,7 @@ public class Star {
 	public void setRecipe(Recipe recipe) {
 		this.recipe = recipe;
 	}
-
-	public Long getNumber() {
-		return number;
-	}
-
-	public void setNumber(Long number) {
-		this.number = number;
-	}
 	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
+	
 
 }

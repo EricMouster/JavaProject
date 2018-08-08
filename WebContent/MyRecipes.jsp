@@ -7,7 +7,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/custom.css">
-<title>Recipe Manager</title>
+<title>My Recipe Manager</title>
 </head>
 <body>
 	<%@include file="./includes/NavBar.jsp"%>

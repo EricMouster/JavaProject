@@ -1,6 +1,10 @@
 package fr.imie.recipe.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Ingredient {
@@ -9,8 +13,15 @@ public class Ingredient {
 	 * Attributes 
 	 */
 	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 	private String name;
-	private int price;
+	private Float price;
+	
+	@ManyToOne
+	private User user;
 	
 	/*
 	 * Constructor
@@ -20,15 +31,24 @@ public class Ingredient {
 		super();
 	}
 
-	public Ingredient(String name, int price) {
+	public Ingredient(String name, Float price, User user) {
 		super();
 		this.name = name;
 		this.price = price;
+		this.user = user;
 	}
 
 	/*
 	 * Getter and Setters
 	 */
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
 	
 	public String getName() {
 		return name;
@@ -38,13 +58,20 @@ public class Ingredient {
 		this.name = name;
 	}
 
-	public int getPrice() {
+	public Float getPrice() {
 		return price;
 	}
 
-	public void setPrice(int price) {
+	public void setPrice(Float price) {
 		this.price = price;
 	}
-	
+
+	public User getUser() {
+		return user;
+	}
+
+	public void setUser(User user) {
+		this.user = user;
+	}
 	
 }

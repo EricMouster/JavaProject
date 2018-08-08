@@ -7,7 +7,7 @@
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="./css/bootstrap.min.css">
 <link rel="stylesheet" href="./css/custom.css">
-<title>Recipe Manager</title>
+<title>My Ingredients Manager</title>
 </head>
 <body>
 	<%@include file="./includes/NavBar.jsp"%>
@@ -17,17 +17,15 @@
 				<tr>
 					<th scope="col">#</th>
 					<th scope="col">Name</th>
-					<th scope="col">Description</th>
-					<th scope="col">Level</th>
+					<th scope="col">Price</th>
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach var="r" items="${recipes}">
+				<c:forEach var="i" items="${ingredients}">
 					<tr>
-						<th scope="row">${r.id}</th>
-						<td>${r.name}</td>
-						<td>${r.description}</td>
-						<td>${r.level}</td>
+						<th scope="row">${i.id}</th>
+						<td>${i.name}</td>
+						<td>${i.price}</td>
 					</tr>
 				</c:forEach>
 			</tbody>
