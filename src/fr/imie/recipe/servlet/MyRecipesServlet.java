@@ -32,7 +32,7 @@ public class MyRecipesServlet extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User currentUser = DaoFactory.getUserDao().findUserById(1L);
+		User currentUser = (User) request.getAttribute("currentUser");
 		List<Recipe> recipes = DaoFactory.getRecipeDao().findRecipeByUser(currentUser);
 		request.setAttribute("recipes", recipes);
 		request.getRequestDispatcher("/MyRecipes.jsp").forward(request, response);
