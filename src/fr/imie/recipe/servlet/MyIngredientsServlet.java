@@ -43,7 +43,9 @@ public class MyIngredientsServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		request.getRequestDispatcher("/api/Ingredient/AddIngredient").forward(request, response);
+		// doGet(request, response);
 	}
 
 }

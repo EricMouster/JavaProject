@@ -1,11 +1,15 @@
 package fr.imie.recipe.entity;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.xml.bind.annotation.XmlRootElement;
 
+@XmlRootElement
 @Entity
 public class Ingredient {
 	
@@ -21,7 +25,8 @@ public class Ingredient {
 	private Float price;
 	private String unit;
 	
-	@ManyToOne
+	@ManyToOne(fetch=FetchType.EAGER)
+	@JoinColumn(name="user_id")
 	private User user;
 	
 	/*
@@ -82,6 +87,12 @@ public class Ingredient {
 
 	public void setUnit(String unit) {
 		this.unit = unit;
+	}
+	
+	@Override
+	public String toString() {
+		String obj = "{ \"id\":\""+this.getId()+"\", \"name\": \""+this.getName()+"\", \"price\": \""+this.getPrice()+"\" }";
+		return obj;
 	}
 	
 }

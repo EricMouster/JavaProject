@@ -7,7 +7,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
+import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlValue;
 
+@XmlRootElement
 @Entity
 public class User {
 	
@@ -23,6 +26,7 @@ public class User {
 	private String password;
 	
 	@OneToMany(mappedBy="user")
+	@XmlValue
 	private List<Recipe> recipes;
 	
 	@OneToMany(mappedBy="user")
