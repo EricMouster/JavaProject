@@ -23,8 +23,8 @@ public class IngredientResource {
 		@Path("/AddIngredient")
 		@Consumes("application/x-www-form-urlencoded")
 		@Produces(MediaType.APPLICATION_JSON)
-		public Response addIngredient(@FormParam("name") String name, @FormParam("price") String price, @FormParam("unit") String unit) throws ServletException, IOException {
-			User u = DaoFactory.getUserDao().findUserById(1L);
+		public Response addIngredient(@FormParam("name") String name, @FormParam("price") String price, @FormParam("unit") String unit, @FormParam("userId") String userId) throws ServletException, IOException {
+			User u = DaoFactory.getUserDao().findUserById(Long.parseLong(userId));
 			Ingredient i = new Ingredient(
 						name,
 						Float.parseFloat(price),

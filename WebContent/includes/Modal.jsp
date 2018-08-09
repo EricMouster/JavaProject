@@ -90,6 +90,6 @@ function sendIngredient() {
   };
   xhttp.open("POST", "http://localhost:8080/Recipe/api/Ingredient/AddIngredient", true);
   xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-  xhttp.send("name="+name+"&unit="+unit+"&price="+price); 
+  xhttp.send("name="+name+"&unit="+unit+"&price="+price+"&userId="+${currentUser.id});
 }
 </script>

@@ -9,4 +9,5 @@ public interface UserDao {
 	List<User> getAllUsers();
 	User findUserById(Long id);
 	void removeUser(User u);
+	User connect(String name, String password);
 }

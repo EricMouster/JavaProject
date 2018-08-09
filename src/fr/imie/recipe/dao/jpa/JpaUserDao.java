@@ -70,4 +70,20 @@ public class JpaUserDao implements UserDao {
 		
 	}
 
+	@SuppressWarnings("unchecked")
+	@Override
+	public User connect(String name, String password) {
+		EntityManager em = emf.createEntityManager();
+		Query query = em.createQuery("SELECT u FROM User AS u WHERE u.username = :name AND u.password = :password");
+		query.setParameter("name", name);
+		query.setParameter("password", password);
+		List<User> users = query.getResultList();
+		em.close();
+		if (users.size() == 1) {
+			return users.get(0);
+		} else {
+			return null;
+		}
+	}
+
 }
